@@ -157,6 +157,9 @@ var ButtonSetNumbers = React.createClass({
 
     return store.newInput = "" + store.curInput + num;
   },
+ _eq: function _eq(type) {
+    store.newInput = store.curInput + " " + type + " ";
+  },
   render: function render() {
     return React.createElement(
       "section",
@@ -170,7 +173,9 @@ var ButtonSetNumbers = React.createClass({
       React.createElement(Button, { text: "7", clickHandler: this._number }),
       React.createElement(Button, { text: "8", clickHandler: this._number }),
       React.createElement(Button, { text: "9", clickHandler: this._number }),
-      React.createElement(Button, { text: "0", clickHandler: this._number })
+      React.createElement(Button, { text: ".", clickHandler: this._number }),
+	  React.createElement(Button, { text: "0", clickHandler: this._number }),
+	  React.createElement(Button, { text: "**", klass: "expo-text", clickHandler: this._eq })
     );
   }
 });
